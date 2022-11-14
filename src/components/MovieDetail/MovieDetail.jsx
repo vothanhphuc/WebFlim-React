@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../MovieDetail/MovieDetail.css';
 import { useDispatch } from 'react-redux';
-import { setMovieDetail } from '../store/actions';
+import { setMovieDetail } from '../store/actions/movieActions';
 
 const MoviesDetail = ({movie, openModal}) => {
     const dispatch = useDispatch()

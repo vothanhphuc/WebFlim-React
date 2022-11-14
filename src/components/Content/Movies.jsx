@@ -1,12 +1,12 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as ACTIONS from '../store/actions';
+import * as ACTIONS from '../store/actions/movieActions';
 import Content from './Content';
 import '../Content/Content.css';
 import { FaArrowAltCircleUp } from 'react-icons/fa';
 import { animateScroll as scroll } from 'react-scroll';
-import  useScrollY  from '../../hooks/useScrollY';
+import useScrollY from '../../hooks/useScrollY';
 
 // const movies = [
 // 	'https://2phimmoi.net/wp-content/uploads/2022/09/nope-103889-thumbnail.jpg',
@@ -25,27 +25,48 @@ import  useScrollY  from '../../hooks/useScrollY';
 
 const handleScrollTop = () => {
 	scroll.scrollToTop();
-}
+};
 
 const Movies = (props) => {
 	const dispatch = useDispatch();
-	const { NetflixOriginals, TrendingMovies, TopRateMovies, ActionMovies } = useSelector(state => state.infoMovies);
-	const  scrollY  = useScrollY();
+	const {
+		NetflixOriginals,
+		TrendingMovies,
+		TopRateMovies,
+		ActionMovies
+	} = useSelector((state) => state.infoMovies);
+	const scrollY = useScrollY();
 
 	useEffect(() => {
 		dispatch(ACTIONS.getNetflixOriginals());
 		dispatch(ACTIONS.getTrendingMovies());
 		dispatch(ACTIONS.getTopRateMovies());
 		dispatch(ACTIONS.getActionMovies());
-	},[dispatch])
+	}, [dispatch]);
 
 	return (
 		<div>
-			<Content Movies={NetflixOriginals} title='Netflix Original' isNetflix ={true}  />
-            <Content Movies={TrendingMovies} title='Trending Movies' maxWidth='250px' />
-            <Content Movies={TopRateMovies} title='Top Rate Movies' maxWidth='250px' />
-            <Content Movies={ActionMovies} title='Action Movies' maxWidth='250px' />
-			<div className='OnTopMovie' onClick={() => handleScrollTop()} style={{ visibility: `${scrollY > 600 ? 'visible': 'hidden'}`}} >
+			<Content
+				Movies={NetflixOriginals}
+				title="Netflix Original"
+				isNetflix={true}
+			/>
+			<Content
+				Movies={TrendingMovies}
+				title="Trending Movies"
+				maxWidth="250px"
+			/>
+			<Content
+				Movies={TopRateMovies}
+				title="Top Rate Movies"
+				maxWidth="250px"
+			/>
+			<Content Movies={ActionMovies} title="Action Movies" maxWidth="250px" />
+			<div
+				className="OnTopMovie"
+				onClick={() => handleScrollTop()}
+				style={{ visibility: `${scrollY > 600 ? 'visible' : 'hidden'}` }}
+			>
 				<FaArrowAltCircleUp />
 			</div>
 		</div>

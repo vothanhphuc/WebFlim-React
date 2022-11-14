@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { setMovieDetail } from '../store/actions';
+import { setMovieDetail } from '../store/actions/movieActions';
 
 const Content = ({ Movies, title, maxWidth, isNetflix }) => {
 	const sliderRef = useRef();
@@ -14,11 +14,11 @@ const Content = ({ Movies, title, maxWidth, isNetflix }) => {
 	const [dragDown, setDragDown] = useState(0);
 	const [dragMove, setDragMove] = useState(0);
 	const [isDrag, setIsDrag] = useState(false);
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
 	const handleSetMovie = (movie) => {
-		dispatch(setMovieDetail(movie))
-	}
+		dispatch(setMovieDetail(movie));
+	};
 
 	const handleScrollRight = () => {
 		const maxScrollLeft =
@@ -81,7 +81,7 @@ const Content = ({ Movies, title, maxWidth, isNetflix }) => {
 						if (movie.poster_path && movie.backdrop_path !== null) {
 							let imageUrl = isNetflix
 								? `https://image.tmdb.org/t/p/original${movie.poster_path}`
-								: `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+								: `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
 							return (
 								<div
 									key={index}
@@ -94,10 +94,8 @@ const Content = ({ Movies, title, maxWidth, isNetflix }) => {
 									<div className="movie-name">{movie.title || movie.name}</div>
 								</div>
 							);
-						} else{
-							return (
-								null
-							)
+						} else {
+							return null;
 						}
 					})}
 			</div>
