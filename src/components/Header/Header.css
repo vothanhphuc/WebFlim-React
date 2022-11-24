@@ -1,0 +1,121 @@
+/* .foofter{
+    width: 100%;
+    height: 230px;
+} */
+.menu{
+    position: relative;
+    width: 280px;
+    height: 230px;
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu .toggle{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 4px rgba(0, 0, 0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+    font-size: 2em;
+    transition: 1.25s;
+    scale: 1;
+}
+.toggle:hover{
+    scale: 1.2;
+}
+@keyframes rotate-center {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+.rotate-center .toggle {
+	    animation: rotate-center 0.6s ease-in-out both;
+}
+.menu li{
+    position: absolute;
+    left: 0;
+    list-style: none;
+    transition: 0.5s;
+    transform-origin: 135px;
+    transition-delay: 0.05s;
+    scale: 0;
+}
+.rotate-center li {
+    scale: 1;
+}
+.menu li a{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.rotate-center  li:nth-child(7){
+    transform: rotate(0deg) translateX(20px);
+}
+.rotate-center  li:nth-child(2){
+    transform: rotate(60deg) translateX(20px);
+}
+.rotate-center  li:nth-child(3){
+    transform: rotate(120deg) translateX(20px);
+}
+.rotate-center  li:nth-child(4){
+    transform: rotate(180deg) translateX(20px);
+}
+.rotate-center  li:nth-child(5){
+    transform: rotate(240deg) translateX(20px);
+}
+.rotate-center  li:nth-child(6){
+    transform: rotate(300deg) translateX(20px);
+}
+.rotate-center  li:nth-child(7) a{
+    transform: rotate(0deg);
+}
+.rotate-center  li:nth-child(2) a{
+    transform: rotate(-60deg);
+}
+.rotate-center  li:nth-child(3) a{
+    transform: rotate(-120deg);
+}
+.rotate-center  li:nth-child(4) a{
+    transform: rotate(-180deg);
+}
+.rotate-center  li:nth-child(5) a{
+    transform: rotate(-240deg);
+}
+.rotate-center  li:nth-child(6) a{
+    transform: rotate(-300deg);
+}
+.rotate-center li:nth-child(7) a:hover{
+  background-color: rgb(228, 123, 205) ;  
+}
+.rotate-center li:nth-child(2) a:hover{
+    background-color: rgb(164, 184, 239) ;  
+}
+.rotate-center li:nth-child(3) a:hover{
+    background-color: rgb(174, 239, 164) ;  
+}
+.rotate-center li:nth-child(4) a:hover{
+    background-color: rgb(164, 216, 239) ;  
+}
+.rotate-center li:nth-child(5) a:hover{
+    background-color: rgb(239, 164, 164) ;  
+}
+.rotate-center li:nth-child(6) a:hover{
+    background-color: rgb(193, 164, 239) ;  
+}

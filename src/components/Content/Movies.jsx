@@ -43,6 +43,8 @@ const Movies = (props) => {
 		dispatch(ACTIONS.getTopRateMovies());
 		dispatch(ACTIONS.getActionMovies());
 	}, [dispatch]);
+	console.log(NetflixOriginals);
+
 
 	return (
 		<div>
